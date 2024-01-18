@@ -19,3 +19,10 @@ interface XSerializer<T> : XSerialization<T>, XDeSerialization<T> {
     override val descriptor: Descriptor
 
 }
+
+interface PluginGeneratedXSerializer<T> : XSerializer<T> {
+    /**
+     * used for TypeParameter
+     */
+    fun typeParameterSerializers() : Array<XSerializer<*>> = emptyArray()
+}

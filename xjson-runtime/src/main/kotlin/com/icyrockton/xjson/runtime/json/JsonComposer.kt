@@ -1,7 +1,7 @@
 package com.icyrockton.xjson.runtime.json
 
 open class JsonComposer(private val writer: JsonWriter) {
-    protected var writingFirst = true
+    var writingFirst = true
     fun space() = print(' ')
     fun print(v: Char) = writer.writeChar(v)
     fun print(v: String) = writer.write(v)

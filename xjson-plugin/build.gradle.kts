@@ -44,13 +44,13 @@ task<JavaExec>("generateTest") {
     mainClass = "com.icyrockton.xjson.plugin.GenerateTestsKt"
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
 kotlin {
     jvmToolchain(17)
     compilerOptions {
-        freeCompilerArgs.addAll(listOf("-opt-in=org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi"))
+        freeCompilerArgs.addAll(listOf(
+            "-opt-in=org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi",
+            "-opt-in=org.jetbrains.kotlin.fir.symbols.SymbolInternals",
+            "-Xcontext-receivers"))
     }
 }
 
