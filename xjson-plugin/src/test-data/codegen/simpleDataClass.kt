@@ -1,4 +1,5 @@
 // FIR_DUMP
+// DUMP_IR
 
 import com.icyrockton.xjson.runtime.annotation.XSerializable
 

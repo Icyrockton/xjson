@@ -24,5 +24,10 @@ interface PluginGeneratedXSerializer<T> : XSerializer<T> {
     /**
      * used for TypeParameter
      */
-    fun typeParameterSerializers() : Array<XSerializer<*>> = emptyArray()
+    fun typeParameterSerializers() : Array<XSerializer<*>>
+
+    /**
+     * used for descriptor []
+     */
+    fun childSerializers() : Array<XSerializer<*>>
 }

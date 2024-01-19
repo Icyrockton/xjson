@@ -2,14 +2,16 @@ package com.icyrockton.xjson.plugin.fir
 
 import com.icyrockton.xjson.plugin.XJsonClassId.pluginGeneratedSerializerClassId
 import com.icyrockton.xjson.plugin.XJsonClassId.serializableFqName
+import com.icyrockton.xjson.plugin.XJsonClassId.serializerClassId
 import com.icyrockton.xjson.plugin.XJsonNames
+import com.icyrockton.xjson.plugin.XJsonNames.TYPE_PARAMETER_SERIALIZER_VALUE_PARAMETER_NAME
 import com.icyrockton.xjson.plugin.XJsonPluginGenerated
 import com.icyrockton.xjson.plugin.XJsonPluginKey
 import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.descriptors.Modality
+import org.jetbrains.kotlin.descriptors.Visibilities
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.copy
-import org.jetbrains.kotlin.fir.declarations.builder.buildPropertyCopy
 import org.jetbrains.kotlin.fir.declarations.builder.buildSimpleFunctionCopy
 import org.jetbrains.kotlin.fir.declarations.origin
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationGenerationExtension
@@ -17,28 +19,23 @@ import org.jetbrains.kotlin.fir.extensions.FirDeclarationPredicateRegistrar
 import org.jetbrains.kotlin.fir.extensions.MemberGenerationContext
 import org.jetbrains.kotlin.fir.extensions.NestedClassGenerationContext
 import org.jetbrains.kotlin.fir.extensions.predicate.LookupPredicate
-import org.jetbrains.kotlin.fir.plugin.createMemberFunction
-import org.jetbrains.kotlin.fir.plugin.createMemberProperty
-import org.jetbrains.kotlin.fir.plugin.createNestedClass
+import org.jetbrains.kotlin.fir.plugin.*
 import org.jetbrains.kotlin.fir.resolve.ScopeSession
-import org.jetbrains.kotlin.fir.resolve.defaultType
 import org.jetbrains.kotlin.fir.resolve.lookupSuperTypes
 import org.jetbrains.kotlin.fir.scopes.FirTypeScope
 import org.jetbrains.kotlin.fir.scopes.getFunctions
 import org.jetbrains.kotlin.fir.scopes.getProperties
 import org.jetbrains.kotlin.fir.scopes.impl.toConeType
 import org.jetbrains.kotlin.fir.scopes.scopeForSupertype
-import org.jetbrains.kotlin.fir.symbols.SymbolInternals
 import org.jetbrains.kotlin.fir.symbols.impl.*
-import org.jetbrains.kotlin.fir.types.ConeTypeProjection
 import org.jetbrains.kotlin.fir.types.classId
 import org.jetbrains.kotlin.fir.types.constructClassLikeType
 import org.jetbrains.kotlin.fir.types.constructType
 import org.jetbrains.kotlin.name.CallableId
 import org.jetbrains.kotlin.name.Name
-import org.jetbrains.kotlin.resolve.or
+import org.jetbrains.kotlin.name.SpecialNames
 
-class FirSerializationGenerator(session: FirSession) : FirDeclarationGenerationExtension(session) {
+class FirSerializerGenerator(session: FirSession) : FirDeclarationGenerationExtension(session) {
 
     override fun getNestedClassifiersNames(
         classSymbol: FirClassSymbol<*>,
@@ -60,14 +57,15 @@ class FirSerializationGenerator(session: FirSession) : FirDeclarationGenerationE
             classId.shortClassName == XJsonPluginGenerated.GenerateSerializer -> {
                 // `$serializer$` class members
                 names += listOf(
+                    SpecialNames.INIT,
                     XJsonNames.SERIALIZE,
                     XJsonNames.DESERIALIZE,
                     XJsonNames.DESCRIPTOR,
                 )
 
                 // if have typeParameter
-                if (classSymbol.resolvedSuperTypes.any { it.classId == pluginGeneratedSerializerClassId }
-                    && classSymbol.typeParameterSymbols.isNotEmpty()) {
+                if (classSymbol.resolvedSuperTypes.any { it.classId == pluginGeneratedSerializerClassId }) {
+                    names += XJsonNames.CHILD_SERIALIZERS
                     names += XJsonNames.TYPE_PARAMETER_SERIALIZERS
                 }
             }
@@ -133,11 +131,13 @@ class FirSerializationGenerator(session: FirSession) : FirDeclarationGenerationE
     ): List<FirNamedFunctionSymbol> {
         val owner = context?.owner ?: return emptyList()
         val callableName = callableId.callableName
-        if(callableName !in listOf(
+        if (callableName !in listOf(
                 XJsonNames.SERIALIZE,
                 XJsonNames.DESERIALIZE,
                 XJsonNames.TYPE_PARAMETER_SERIALIZERS,
-            )) return emptyList()
+                XJsonNames.CHILD_SERIALIZERS,
+            )
+        ) return emptyList()
 
         val fromSuperSymbol = getFromSuperTypes(owner) { this.getFunctions(callableName) }
         val originFunc = fromSuperSymbol.fir
@@ -152,27 +152,56 @@ class FirSerializationGenerator(session: FirSession) : FirDeclarationGenerationE
     }
 
 
-
     override fun generateProperties(
         callableId: CallableId,
         context: MemberGenerationContext?
     ): List<FirPropertySymbol> {
         val owner = context?.owner ?: return emptyList()
         val callableName = callableId.callableName
-        if(callableName != XJsonNames.DESCRIPTOR) return emptyList()
+        if (callableName != XJsonNames.DESCRIPTOR) return emptyList()
         val fromSuperSymbol = getFromSuperTypes(owner) { this.getProperties(callableName) }
 
-        val property = createMemberProperty(owner, XJsonPluginKey, callableName,  fromSuperSymbol.resolvedReturnType )
+        val property = createMemberProperty(owner, XJsonPluginKey, callableName, fromSuperSymbol.resolvedReturnType)
 
         return listOf(property.symbol)
     }
 
     override fun generateConstructors(context: MemberGenerationContext): List<FirConstructorSymbol> {
-        return super.generateConstructors(context)
+        val owner = context.owner
+        val constructors = mutableListOf<FirConstructorSymbol>()
+        constructors += createDefaultPrivateConstructor(
+            owner,
+            XJsonPluginKey,
+            generateDelegatedNoArgConstructorCall = false
+        ).symbol
+
+        // if serializer has type parameters, we create another constructor with value parameters (XSerializers)
+        if (owner.classId.shortClassName == XJsonPluginGenerated.GenerateSerializer
+            && owner.typeParameterSymbols.isNotEmpty()
+        ) {
+            constructors += createConstructor(
+                owner,
+                XJsonPluginKey,
+                isPrimary = false,
+                generateDelegatedNoArgConstructorCall = false
+            ) {
+                visibility = Visibilities.Public
+                owner.typeParameterSymbols.forEachIndexed { index, parameterSymbol ->
+                    val tName = TYPE_PARAMETER_SERIALIZER_VALUE_PARAMETER_NAME(index)
+                    val tType = serializerClassId.constructClassLikeType(
+                        arrayOf(parameterSymbol.toConeType()),
+                        isNullable = false
+                    )
+                    valueParameter(tName, tType)
+                }
+            }.symbol
+        }
+
+        return constructors
     }
 
     /**
-     * NB: The predict needs to be registered in order to parse the [@XSerializable] type
+     * NB: The predict needs to be *registered* in order to parse the [@XSerializable] type
      * otherwise, the annotation remains unresolved
      */
     override fun FirDeclarationPredicateRegistrar.registerPredicates() {

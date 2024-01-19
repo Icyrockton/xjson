@@ -15,6 +15,33 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$" name="xjson">
+                <projects>
+                  <project path="$PROJECT_DIR$" />
+                  <project path="$PROJECT_DIR$/xjson-plugin" />
+                  <project path="$PROJECT_DIR$/xjson-plugin-gradle" />
+                  <project path="$PROJECT_DIR$/xjson-runtime" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/sample" />
+        <option name="gradleHome" value="" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/xjson-plugin" />
+            <option value="$PROJECT_DIR$/xjson-plugin-gradle" />
+            <option value="$PROJECT_DIR$/xjson-runtime" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>

@@ -1,0 +1,595 @@
+FILE fqName:<root> fileName:/complexDataClass.kt
+  CLASS CLASS name:Box modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
+    annotations:
+      XSerializable(with = <null>)
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:<root>.Box<T of <root>.Box>
+    TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+    CONSTRUCTOR visibility:public <> (v:T of <root>.Box) returnType:<root>.Box<T of <root>.Box> [primary]
+      VALUE_PARAMETER name:v index:0 type:T of <root>.Box
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:Box modality:FINAL visibility:public [data] superTypes:[kotlin.Any]'
+    PROPERTY name:v visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'v: T of <root>.Box declared in <root>.Box.<init>' type=T of <root>.Box origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-v> visibility:public modality:FINAL <> ($this:<root>.Box<T of <root>.Box>) returnType:T of <root>.Box
+        correspondingProperty: PROPERTY name:v visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:<root>.Box<T of <root>.Box>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-v> (): T of <root>.Box declared in <root>.Box'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+              receiver: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.<get-v>' type=<root>.Box<T of <root>.Box> origin=null
+    CLASS GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] CLASS name:$serializer$ modality:FINAL visibility:public superTypes:[com.icyrockton.xjson.runtime.PluginGeneratedXSerializer<<root>.Box<T of <root>.Box.$serializer$>>]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+      TYPE_PARAMETER GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      CONSTRUCTOR GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] visibility:private <> () returnType:<root>.Box.$serializer$<T of <root>.Box.$serializer$> [primary]
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] CLASS name:$serializer$ modality:FINAL visibility:public superTypes:[com.icyrockton.xjson.runtime.PluginGeneratedXSerializer<<root>.Box<T of <root>.Box.$serializer$>>]'
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:typeParameterSerializers visibility:public modality:FINAL <> ($this:<root>.Box.$serializer$<T of <root>.Box.$serializer$>) returnType:kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>>
+        overridden:
+          public abstract fun typeParameterSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun typeParameterSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in <root>.Box.$serializer$'
+            CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> origin=null
+              <T>: com.icyrockton.xjson.runtime.XSerializer<*>
+              elements: VARARG type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> varargElementType=com.icyrockton.xjson.runtime.XSerializer<*>
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> origin=null
+                  receiver: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.typeParameterSerializers' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+      PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:descriptor visibility:public modality:FINAL [val]
+        overridden:
+          public abstract descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor
+        FIELD PROPERTY_BACKING_FIELD name:descriptor type:com.icyrockton.xjson.runtime.descriptor.Descriptor visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-descriptor> visibility:public modality:FINAL <> ($this:<root>.Box.$serializer$<T of <root>.Box.$serializer$>) returnType:com.icyrockton.xjson.runtime.descriptor.Descriptor
+          correspondingProperty: PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:descriptor visibility:public modality:FINAL [val]
+          overridden:
+            public abstract fun <get-descriptor> (): com.icyrockton.xjson.runtime.descriptor.Descriptor declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+          $this: VALUE_PARAMETER name:<this> type:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-descriptor> (): com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Box.$serializer$'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:descriptor type:com.icyrockton.xjson.runtime.descriptor.Descriptor visibility:private [final]' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+                receiver: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.<get-descriptor>' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:serialize visibility:public modality:FINAL <> ($this:<root>.Box.$serializer$<T of <root>.Box.$serializer$>, encoder:com.icyrockton.xjson.runtime.encoding.Encoder, value:<root>.Box<T of <root>.Box.$serializer$>) returnType:kotlin.Unit
+        overridden:
+          public abstract fun serialize (encoder: com.icyrockton.xjson.runtime.encoding.Encoder, value: T of com.icyrockton.xjson.runtime.PluginGeneratedXSerializer): kotlin.Unit declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+        VALUE_PARAMETER name:encoder index:0 type:com.icyrockton.xjson.runtime.encoding.Encoder
+        VALUE_PARAMETER name:value index:1 type:<root>.Box<T of <root>.Box.$serializer$>
+        BLOCK_BODY
+          VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:com.icyrockton.xjson.runtime.descriptor.Descriptor [val]
+            CALL 'public final fun <get-descriptor> (): com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Box.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=GET_PROPERTY
+              $this: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.serialize' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+          VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:com.icyrockton.xjson.runtime.encoding.CompositeEncoder [val]
+            CALL 'public abstract fun beginStructure (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor): com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in com.icyrockton.xjson.runtime.encoding.Encoder' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+              $this: GET_VAR 'encoder: com.icyrockton.xjson.runtime.encoding.Encoder declared in <root>.Box.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.Encoder origin=null
+              descriptor: GET_VAR 'val tmp_0: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Box.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+          CALL 'public abstract fun encodeSerializableElement <T> (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor, index: kotlin.Int, serializer: com.icyrockton.xjson.runtime.XSerialization<T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement>, value: T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement): kotlin.Unit declared in com.icyrockton.xjson.runtime.encoding.CompositeEncoder' type=kotlin.Unit origin=null
+            <T>: <none>
+            $this: GET_VAR 'val tmp_1: com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in <root>.Box.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+            descriptor: GET_VAR 'val tmp_0: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Box.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+            index: CONST Int type=kotlin.Int value=0
+            serializer: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> origin=null
+              receiver: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.serialize' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+            value: CALL 'public final fun <get-v> (): T of <root>.Box declared in <root>.Box' type=T of <root>.Box origin=GET_PROPERTY
+              $this: GET_VAR 'value: <root>.Box<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.serialize' type=<root>.Box<T of <root>.Box.$serializer$> origin=null
+          CALL 'public abstract fun endStructure (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor): kotlin.Unit declared in com.icyrockton.xjson.runtime.encoding.CompositeEncoder' type=kotlin.Unit origin=null
+            $this: GET_VAR 'val tmp_1: com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in <root>.Box.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+            descriptor: GET_VAR 'val tmp_0: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Box.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:deserialize visibility:public modality:FINAL <> ($this:<root>.Box.$serializer$<T of <root>.Box.$serializer$>, decoder:com.icyrockton.xjson.runtime.encoding.Decoder) returnType:<root>.Box<T of <root>.Box.$serializer$>
+        overridden:
+          public abstract fun deserialize (decoder: com.icyrockton.xjson.runtime.encoding.Decoder): T of com.icyrockton.xjson.runtime.PluginGeneratedXSerializer declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+        VALUE_PARAMETER name:decoder index:0 type:com.icyrockton.xjson.runtime.encoding.Decoder
+        BLOCK_BODY
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:childSerializers visibility:public modality:FINAL <> ($this:<root>.Box.$serializer$<T of <root>.Box.$serializer$>) returnType:kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>>
+        overridden:
+          public abstract fun childSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun childSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in <root>.Box.$serializer$'
+            CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> origin=null
+              <T>: com.icyrockton.xjson.runtime.XSerializer<*>
+              elements: VARARG type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> varargElementType=com.icyrockton.xjson.runtime.XSerializer<*>
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> origin=null
+                  receiver: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.childSerializers' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+      CONSTRUCTOR GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] visibility:public <> (tpSerializer_0:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$>) returnType:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+        VALUE_PARAMETER GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_0 index:0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$>
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'private constructor <init> () declared in <root>.Box.$serializer$'
+            <T>: <none>
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> visibility:public' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+            value: GET_VAR 'tpSerializer_0: com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.<init>' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> origin=null
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+        VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+        overridden:
+          public open fun toString (): kotlin.String declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_0 visibility:private modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> visibility:public
+        FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:<get-tpSerializer_0> visibility:public modality:FINAL <> ($this:<root>.Box.$serializer$<T of <root>.Box.$serializer$>) returnType:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$>
+          correspondingProperty: PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_0 visibility:private modality:FINAL [val]
+          $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:<root>.Box.$serializer$<T of <root>.Box.$serializer$>
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-tpSerializer_0> (): com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$> origin=null
+                receiver: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$.<get-tpSerializer_0>' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+      ANONYMOUS_INITIALIZER isStatic=false
+        BLOCK_BODY
+          VAR IR_TEMPORARY_VARIABLE name:tmp_2 type:com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor [val]
+            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, elementsCount: kotlin.Int, generatedXSerializer: com.icyrockton.xjson.runtime.PluginGeneratedXSerializer<*>) declared in com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+              name: CONST String type=kotlin.String value="Box"
+              elementsCount: CONST Int type=kotlin.Int value=1
+              generatedXSerializer: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+          CALL 'public final fun element (name: kotlin.String, isOptional: kotlin.Boolean): kotlin.Unit declared in com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor' type=kotlin.Unit origin=null
+            $this: GET_VAR 'val tmp_2: com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor declared in <root>.Box.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+            name: CONST String type=kotlin.String value="v"
+            isOptional: CONST Boolean type=kotlin.Boolean value=false
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:descriptor type:com.icyrockton.xjson.runtime.descriptor.Descriptor visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: <root>.Box.$serializer$<T of <root>.Box.$serializer$> declared in <root>.Box.$serializer$' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+            value: GET_VAR 'val tmp_2: com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor declared in <root>.Box.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component1 visibility:public modality:FINAL <> ($this:<root>.Box<T of <root>.Box>) returnType:T of <root>.Box [operator]
+      $this: VALUE_PARAMETER name:<this> type:<root>.Box<T of <root>.Box>
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): T of <root>.Box declared in <root>.Box'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+            receiver: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.component1' type=<root>.Box<T of <root>.Box> origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:copy visibility:public modality:FINAL <> ($this:<root>.Box<T of <root>.Box>, v:T of <root>.Box) returnType:<root>.Box<T of <root>.Box>
+      $this: VALUE_PARAMETER name:<this> type:<root>.Box<T of <root>.Box>
+      VALUE_PARAMETER name:v index:0 type:T of <root>.Box
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+            receiver: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.copy' type=<root>.Box<T of <root>.Box> origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (v: T of <root>.Box): <root>.Box<T of <root>.Box> declared in <root>.Box'
+          CONSTRUCTOR_CALL 'public constructor <init> (v: T of <root>.Box) declared in <root>.Box' type=<root>.Box<T of <root>.Box> origin=null
+            <class: T>: T of <root>.Box
+            v: GET_VAR 'v: T of <root>.Box declared in <root>.Box.copy' type=T of <root>.Box origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN <> ($this:<root>.Box<T of <root>.Box>) returnType:kotlin.String
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:<root>.Box<T of <root>.Box>
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in <root>.Box'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="Box("
+            CONST String type=kotlin.String value="v="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+              receiver: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.toString' type=<root>.Box<T of <root>.Box> origin=null
+            CONST String type=kotlin.String value=")"
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN <> ($this:<root>.Box<T of <root>.Box>) returnType:kotlin.Int
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:<root>.Box<T of <root>.Box>
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in <root>.Box'
+          WHEN type=kotlin.Int origin=null
+            BRANCH
+              if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+                  receiver: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.hashCode' type=<root>.Box<T of <root>.Box> origin=null
+                arg1: CONST Null type=kotlin.Nothing? value=null
+              then: CONST Int type=kotlin.Int value=0
+            BRANCH
+              if: CONST Boolean type=kotlin.Boolean value=true
+              then: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+                  receiver: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.hashCode' type=<root>.Box<T of <root>.Box> origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN <> ($this:<root>.Box<T of <root>.Box>, other:kotlin.Any?) returnType:kotlin.Boolean [operator]
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:<root>.Box<T of <root>.Box>
+      VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              arg0: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.equals' type=<root>.Box<T of <root>.Box> origin=null
+              arg1: GET_VAR 'other: kotlin.Any? declared in <root>.Box.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Box'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=<root>.Box<T of <root>.Box>
+              GET_VAR 'other: kotlin.Any? declared in <root>.Box.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Box'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_3 type:<root>.Box<T of <root>.Box> [val]
+          TYPE_OP type=<root>.Box<T of <root>.Box> origin=CAST typeOperand=<root>.Box<T of <root>.Box>
+            GET_VAR 'other: kotlin.Any? declared in <root>.Box.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+                  receiver: GET_VAR '<this>: <root>.Box<T of <root>.Box> declared in <root>.Box.equals' type=<root>.Box<T of <root>.Box> origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:v type:T of <root>.Box visibility:private [final]' type=T of <root>.Box origin=null
+                  receiver: GET_VAR 'val tmp_3: <root>.Box<T of <root>.Box> declared in <root>.Box.equals' type=<root>.Box<T of <root>.Box> origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Box'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Box'
+          CONST Boolean type=kotlin.Boolean value=true
+  CLASS CLASS name:Foo modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
+    annotations:
+      XSerializable(with = <null>)
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+    TYPE_PARAMETER name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+    TYPE_PARAMETER name:V index:1 variance: superTypes:[kotlin.Any?] reified:false
+    CONSTRUCTOR visibility:public <> (a:T of <root>.Foo, b:V of <root>.Foo, box:<root>.Box<T of <root>.Foo>) returnType:<root>.Foo<T of <root>.Foo, V of <root>.Foo> [primary]
+      VALUE_PARAMETER name:a index:0 type:T of <root>.Foo
+      VALUE_PARAMETER name:b index:1 type:V of <root>.Foo
+      VALUE_PARAMETER name:box index:2 type:<root>.Box<T of <root>.Foo>
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:Foo modality:FINAL visibility:public [data] superTypes:[kotlin.Any]'
+    PROPERTY name:a visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'a: T of <root>.Foo declared in <root>.Foo.<init>' type=T of <root>.Foo origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-a> visibility:public modality:FINAL <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:T of <root>.Foo
+        correspondingProperty: PROPERTY name:a visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-a> (): T of <root>.Foo declared in <root>.Foo'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+              receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.<get-a>' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+    PROPERTY name:b visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'b: V of <root>.Foo declared in <root>.Foo.<init>' type=V of <root>.Foo origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-b> visibility:public modality:FINAL <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:V of <root>.Foo
+        correspondingProperty: PROPERTY name:b visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-b> (): V of <root>.Foo declared in <root>.Foo'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+              receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.<get-b>' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+    PROPERTY name:box visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'box: <root>.Box<T of <root>.Foo> declared in <root>.Foo.<init>' type=<root>.Box<T of <root>.Foo> origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-box> visibility:public modality:FINAL <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:<root>.Box<T of <root>.Foo>
+        correspondingProperty: PROPERTY name:box visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-box> (): <root>.Box<T of <root>.Foo> declared in <root>.Foo'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]' type=<root>.Box<T of <root>.Foo> origin=null
+              receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.<get-box>' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+    CLASS GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] CLASS name:$serializer$ modality:FINAL visibility:public superTypes:[com.icyrockton.xjson.runtime.PluginGeneratedXSerializer<<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>>]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+      TYPE_PARAMETER GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:T index:0 variance: superTypes:[kotlin.Any?] reified:false
+      TYPE_PARAMETER GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:V index:1 variance: superTypes:[kotlin.Any?] reified:false
+      CONSTRUCTOR GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] visibility:private <> () returnType:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> [primary]
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () declared in kotlin.Any'
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] CLASS name:$serializer$ modality:FINAL visibility:public superTypes:[com.icyrockton.xjson.runtime.PluginGeneratedXSerializer<<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>>]'
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:typeParameterSerializers visibility:public modality:FINAL <> ($this:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>) returnType:kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>>
+        overridden:
+          public abstract fun typeParameterSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun typeParameterSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in <root>.Foo.$serializer$'
+            CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> origin=null
+              <T>: com.icyrockton.xjson.runtime.XSerializer<*>
+              elements: VARARG type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> varargElementType=com.icyrockton.xjson.runtime.XSerializer<*>
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.typeParameterSerializers' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_1 type:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.typeParameterSerializers' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+      PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:descriptor visibility:public modality:FINAL [val]
+        overridden:
+          public abstract descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor
+        FIELD PROPERTY_BACKING_FIELD name:descriptor type:com.icyrockton.xjson.runtime.descriptor.Descriptor visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-descriptor> visibility:public modality:FINAL <> ($this:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>) returnType:com.icyrockton.xjson.runtime.descriptor.Descriptor
+          correspondingProperty: PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:descriptor visibility:public modality:FINAL [val]
+          overridden:
+            public abstract fun <get-descriptor> (): com.icyrockton.xjson.runtime.descriptor.Descriptor declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+          $this: VALUE_PARAMETER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-descriptor> (): com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Foo.$serializer$'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:descriptor type:com.icyrockton.xjson.runtime.descriptor.Descriptor visibility:private [final]' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+                receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.<get-descriptor>' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:serialize visibility:public modality:FINAL <> ($this:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>, encoder:com.icyrockton.xjson.runtime.encoding.Encoder, value:<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>) returnType:kotlin.Unit
+        overridden:
+          public abstract fun serialize (encoder: com.icyrockton.xjson.runtime.encoding.Encoder, value: T of com.icyrockton.xjson.runtime.PluginGeneratedXSerializer): kotlin.Unit declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+        VALUE_PARAMETER name:encoder index:0 type:com.icyrockton.xjson.runtime.encoding.Encoder
+        VALUE_PARAMETER name:value index:1 type:<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+        BLOCK_BODY
+          VAR IR_TEMPORARY_VARIABLE name:tmp_4 type:com.icyrockton.xjson.runtime.descriptor.Descriptor [val]
+            CALL 'public final fun <get-descriptor> (): com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Foo.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=GET_PROPERTY
+              $this: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.serialize' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+          VAR IR_TEMPORARY_VARIABLE name:tmp_5 type:com.icyrockton.xjson.runtime.encoding.CompositeEncoder [val]
+            CALL 'public abstract fun beginStructure (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor): com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in com.icyrockton.xjson.runtime.encoding.Encoder' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+              $this: GET_VAR 'encoder: com.icyrockton.xjson.runtime.encoding.Encoder declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.Encoder origin=null
+              descriptor: GET_VAR 'val tmp_4: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+          CALL 'public abstract fun encodeSerializableElement <T> (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor, index: kotlin.Int, serializer: com.icyrockton.xjson.runtime.XSerialization<T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement>, value: T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement): kotlin.Unit declared in com.icyrockton.xjson.runtime.encoding.CompositeEncoder' type=kotlin.Unit origin=null
+            <T>: <none>
+            $this: GET_VAR 'val tmp_5: com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+            descriptor: GET_VAR 'val tmp_4: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+            index: CONST Int type=kotlin.Int value=0
+            serializer: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> origin=null
+              receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.serialize' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+            value: CALL 'public final fun <get-a> (): T of <root>.Foo declared in <root>.Foo' type=T of <root>.Foo origin=GET_PROPERTY
+              $this: GET_VAR 'value: <root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.serialize' type=<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+          CALL 'public abstract fun encodeSerializableElement <T> (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor, index: kotlin.Int, serializer: com.icyrockton.xjson.runtime.XSerialization<T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement>, value: T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement): kotlin.Unit declared in com.icyrockton.xjson.runtime.encoding.CompositeEncoder' type=kotlin.Unit origin=null
+            <T>: <none>
+            $this: GET_VAR 'val tmp_5: com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+            descriptor: GET_VAR 'val tmp_4: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+            index: CONST Int type=kotlin.Int value=1
+            serializer: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_1 type:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> origin=null
+              receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.serialize' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+            value: CALL 'public final fun <get-b> (): V of <root>.Foo declared in <root>.Foo' type=V of <root>.Foo origin=GET_PROPERTY
+              $this: GET_VAR 'value: <root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.serialize' type=<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+          CALL 'public abstract fun encodeSerializableElement <T> (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor, index: kotlin.Int, serializer: com.icyrockton.xjson.runtime.XSerialization<T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement>, value: T of com.icyrockton.xjson.runtime.encoding.CompositeEncoder.encodeSerializableElement): kotlin.Unit declared in com.icyrockton.xjson.runtime.encoding.CompositeEncoder' type=kotlin.Unit origin=null
+            <T>: <none>
+            $this: GET_VAR 'val tmp_5: com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+            descriptor: GET_VAR 'val tmp_4: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+            index: CONST Int type=kotlin.Int value=2
+            serializer: CONSTRUCTOR_CALL 'public constructor <init> (tpSerializer_0: com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$>) declared in <root>.Box.$serializer$' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+              <class: T>: T of <root>.Foo
+              tpSerializer_0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> origin=null
+                receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.serialize' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+            value: CALL 'public final fun <get-box> (): <root>.Box<T of <root>.Foo> declared in <root>.Foo' type=<root>.Box<T of <root>.Foo> origin=GET_PROPERTY
+              $this: GET_VAR 'value: <root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.serialize' type=<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+          CALL 'public abstract fun endStructure (descriptor: com.icyrockton.xjson.runtime.descriptor.Descriptor): kotlin.Unit declared in com.icyrockton.xjson.runtime.encoding.CompositeEncoder' type=kotlin.Unit origin=null
+            $this: GET_VAR 'val tmp_5: com.icyrockton.xjson.runtime.encoding.CompositeEncoder declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.encoding.CompositeEncoder origin=null
+            descriptor: GET_VAR 'val tmp_4: com.icyrockton.xjson.runtime.descriptor.Descriptor declared in <root>.Foo.$serializer$.serialize' type=com.icyrockton.xjson.runtime.descriptor.Descriptor origin=null
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:deserialize visibility:public modality:FINAL <> ($this:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>, decoder:com.icyrockton.xjson.runtime.encoding.Decoder) returnType:<root>.Foo<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+        overridden:
+          public abstract fun deserialize (decoder: com.icyrockton.xjson.runtime.encoding.Decoder): T of com.icyrockton.xjson.runtime.PluginGeneratedXSerializer declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+        VALUE_PARAMETER name:decoder index:0 type:com.icyrockton.xjson.runtime.encoding.Decoder
+        BLOCK_BODY
+      FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:childSerializers visibility:public modality:FINAL <> ($this:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>) returnType:kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>>
+        overridden:
+          public abstract fun childSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun childSerializers (): kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> declared in <root>.Foo.$serializer$'
+            CALL 'public final fun arrayOf <T> (vararg elements: T of kotlin.arrayOf): kotlin.Array<T of kotlin.arrayOf> declared in kotlin' type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> origin=null
+              <T>: com.icyrockton.xjson.runtime.XSerializer<*>
+              elements: VARARG type=kotlin.Array<com.icyrockton.xjson.runtime.XSerializer<*>> varargElementType=com.icyrockton.xjson.runtime.XSerializer<*>
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.childSerializers' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+                GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_1 type:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.childSerializers' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+                CONSTRUCTOR_CALL 'public constructor <init> (tpSerializer_0: com.icyrockton.xjson.runtime.XSerializer<T of <root>.Box.$serializer$>) declared in <root>.Box.$serializer$' type=<root>.Box.$serializer$<T of <root>.Box.$serializer$> origin=null
+                  <class: T>: T of <root>.Foo
+                  tpSerializer_0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> origin=null
+                    receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.childSerializers' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+      CONSTRUCTOR GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] visibility:public <> (tpSerializer_0:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$>, tpSerializer_1:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$>) returnType:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+        VALUE_PARAMETER GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_0 index:0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$>
+        VALUE_PARAMETER GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_1 index:1 type:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$>
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'private constructor <init> () declared in <root>.Foo.$serializer$'
+            <T>: <none>
+            <V>: <none>
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+            value: GET_VAR 'tpSerializer_0: com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.<init>' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> origin=null
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_1 type:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> visibility:public' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+            value: GET_VAR 'tpSerializer_1: com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.<init>' type=com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> origin=null
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+        VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+        overridden:
+          public open fun toString (): kotlin.String declared in com.icyrockton.xjson.runtime.PluginGeneratedXSerializer
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_0 visibility:private modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public
+        FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:<get-tpSerializer_0> visibility:public modality:FINAL <> ($this:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>) returnType:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$>
+          correspondingProperty: PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_0 visibility:private modality:FINAL [val]
+          $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-tpSerializer_0> (): com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_0 type:com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<T of <root>.Foo.$serializer$> origin=null
+                receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.<get-tpSerializer_0>' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+      PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_1 visibility:private modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:tpSerializer_1 type:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> visibility:public
+        FUN GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:<get-tpSerializer_1> visibility:public modality:FINAL <> ($this:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>) returnType:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$>
+          correspondingProperty: PROPERTY GENERATED[com.icyrockton.xjson.plugin.XJsonPluginKey] name:tpSerializer_1 visibility:private modality:FINAL [val]
+          $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$>
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-tpSerializer_1> (): com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:tpSerializer_1 type:com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> visibility:public' type=com.icyrockton.xjson.runtime.XSerializer<V of <root>.Foo.$serializer$> origin=null
+                receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$.<get-tpSerializer_1>' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+      ANONYMOUS_INITIALIZER isStatic=false
+        BLOCK_BODY
+          VAR IR_TEMPORARY_VARIABLE name:tmp_6 type:com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor [val]
+            CONSTRUCTOR_CALL 'public constructor <init> (name: kotlin.String, elementsCount: kotlin.Int, generatedXSerializer: com.icyrockton.xjson.runtime.PluginGeneratedXSerializer<*>) declared in com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+              name: CONST String type=kotlin.String value="Foo"
+              elementsCount: CONST Int type=kotlin.Int value=3
+              generatedXSerializer: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+          CALL 'public final fun element (name: kotlin.String, isOptional: kotlin.Boolean): kotlin.Unit declared in com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor' type=kotlin.Unit origin=null
+            $this: GET_VAR 'val tmp_6: com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor declared in <root>.Foo.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+            name: CONST String type=kotlin.String value="a"
+            isOptional: CONST Boolean type=kotlin.Boolean value=false
+          CALL 'public final fun element (name: kotlin.String, isOptional: kotlin.Boolean): kotlin.Unit declared in com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor' type=kotlin.Unit origin=null
+            $this: GET_VAR 'val tmp_6: com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor declared in <root>.Foo.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+            name: CONST String type=kotlin.String value="b"
+            isOptional: CONST Boolean type=kotlin.Boolean value=false
+          CALL 'public final fun element (name: kotlin.String, isOptional: kotlin.Boolean): kotlin.Unit declared in com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor' type=kotlin.Unit origin=null
+            $this: GET_VAR 'val tmp_6: com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor declared in <root>.Foo.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+            name: CONST String type=kotlin.String value="box"
+            isOptional: CONST Boolean type=kotlin.Boolean value=false
+          SET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:descriptor type:com.icyrockton.xjson.runtime.descriptor.Descriptor visibility:private [final]' type=kotlin.Unit origin=null
+            receiver: GET_VAR '<this>: <root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> declared in <root>.Foo.$serializer$' type=<root>.Foo.$serializer$<T of <root>.Foo.$serializer$, V of <root>.Foo.$serializer$> origin=null
+            value: GET_VAR 'val tmp_6: com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor declared in <root>.Foo.$serializer$' type=com.icyrockton.xjson.runtime.descriptor.PluginGeneratedDescriptor origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component1 visibility:public modality:FINAL <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:T of <root>.Foo [operator]
+      $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): T of <root>.Foo declared in <root>.Foo'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+            receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.component1' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component2 visibility:public modality:FINAL <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:V of <root>.Foo [operator]
+      $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component2 (): V of <root>.Foo declared in <root>.Foo'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+            receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.component2' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:component3 visibility:public modality:FINAL <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:<root>.Box<T of <root>.Foo> [operator]
+      $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component3 (): <root>.Box<T of <root>.Foo> declared in <root>.Foo'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]' type=<root>.Box<T of <root>.Foo> origin=null
+            receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.component3' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:copy visibility:public modality:FINAL <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>, a:T of <root>.Foo, b:V of <root>.Foo, box:<root>.Box<T of <root>.Foo>) returnType:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      VALUE_PARAMETER name:a index:0 type:T of <root>.Foo
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+            receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.copy' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+      VALUE_PARAMETER name:b index:1 type:V of <root>.Foo
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+            receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.copy' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+      VALUE_PARAMETER name:box index:2 type:<root>.Box<T of <root>.Foo>
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]' type=<root>.Box<T of <root>.Foo> origin=null
+            receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.copy' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (a: T of <root>.Foo, b: V of <root>.Foo, box: <root>.Box<T of <root>.Foo>): <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo'
+          CONSTRUCTOR_CALL 'public constructor <init> (a: T of <root>.Foo, b: V of <root>.Foo, box: <root>.Box<T of <root>.Foo>) declared in <root>.Foo' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+            <class: T>: T of <root>.Foo
+            <class: V>: V of <root>.Foo
+            a: GET_VAR 'a: T of <root>.Foo declared in <root>.Foo.copy' type=T of <root>.Foo origin=null
+            b: GET_VAR 'b: V of <root>.Foo declared in <root>.Foo.copy' type=V of <root>.Foo origin=null
+            box: GET_VAR 'box: <root>.Box<T of <root>.Foo> declared in <root>.Foo.copy' type=<root>.Box<T of <root>.Foo> origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:kotlin.String
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in <root>.Foo'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="Foo("
+            CONST String type=kotlin.String value="a="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+              receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.toString' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="b="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+              receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.toString' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+            CONST String type=kotlin.String value=", "
+            CONST String type=kotlin.String value="box="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]' type=<root>.Box<T of <root>.Foo> origin=null
+              receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.toString' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+            CONST String type=kotlin.String value=")"
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>) returnType:kotlin.Int
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      BLOCK_BODY
+        VAR name:result type:kotlin.Int [var]
+          WHEN type=kotlin.Int origin=null
+            BRANCH
+              if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.hashCode' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+                arg1: CONST Null type=kotlin.Nothing? value=null
+              then: CONST Int type=kotlin.Int value=0
+            BRANCH
+              if: CONST Boolean type=kotlin.Boolean value=true
+              then: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.hashCode' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+        SET_VAR 'var result: kotlin.Int declared in <root>.Foo.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_VAR 'var result: kotlin.Int declared in <root>.Foo.hashCode' type=kotlin.Int origin=null
+              other: CONST Int type=kotlin.Int value=31
+            other: WHEN type=kotlin.Int origin=null
+              BRANCH
+                if: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQ
+                  arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+                    receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.hashCode' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+                then: CONST Int type=kotlin.Int value=0
+              BRANCH
+                if: CONST Boolean type=kotlin.Boolean value=true
+                then: CALL 'public open fun hashCode (): kotlin.Int declared in kotlin.Any' type=kotlin.Int origin=null
+                  $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+                    receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.hashCode' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+        SET_VAR 'var result: kotlin.Int declared in <root>.Foo.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: CALL 'public final fun times (other: kotlin.Int): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_VAR 'var result: kotlin.Int declared in <root>.Foo.hashCode' type=kotlin.Int origin=null
+              other: CONST Int type=kotlin.Int value=31
+            other: CALL 'public open fun hashCode (): kotlin.Int declared in <root>.Box' type=kotlin.Int origin=null
+              $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]' type=<root>.Box<T of <root>.Foo> origin=null
+                receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.hashCode' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in <root>.Foo'
+          GET_VAR 'var result: kotlin.Int declared in <root>.Foo.hashCode' type=kotlin.Int origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN <> ($this:<root>.Foo<T of <root>.Foo, V of <root>.Foo>, other:kotlin.Any?) returnType:kotlin.Boolean [operator]
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+      VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              arg0: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.equals' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+              arg1: GET_VAR 'other: kotlin.Any? declared in <root>.Foo.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Foo'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+              GET_VAR 'other: kotlin.Any? declared in <root>.Foo.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Foo'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_7 type:<root>.Foo<T of <root>.Foo, V of <root>.Foo> [val]
+          TYPE_OP type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=CAST typeOperand=<root>.Foo<T of <root>.Foo, V of <root>.Foo>
+            GET_VAR 'other: kotlin.Any? declared in <root>.Foo.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.equals' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:T of <root>.Foo visibility:private [final]' type=T of <root>.Foo origin=null
+                  receiver: GET_VAR 'val tmp_7: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.equals' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Foo'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.equals' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:V of <root>.Foo visibility:private [final]' type=V of <root>.Foo origin=null
+                  receiver: GET_VAR 'val tmp_7: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.equals' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Foo'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]' type=<root>.Box<T of <root>.Foo> origin=null
+                  receiver: GET_VAR '<this>: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.equals' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:box type:<root>.Box<T of <root>.Foo> visibility:private [final]' type=<root>.Box<T of <root>.Foo> origin=null
+                  receiver: GET_VAR 'val tmp_7: <root>.Foo<T of <root>.Foo, V of <root>.Foo> declared in <root>.Foo.equals' type=<root>.Foo<T of <root>.Foo, V of <root>.Foo> origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Foo'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in <root>.Foo'
+          CONST Boolean type=kotlin.Boolean value=true

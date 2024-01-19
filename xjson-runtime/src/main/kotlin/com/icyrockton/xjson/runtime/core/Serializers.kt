@@ -55,11 +55,18 @@ private fun <T : Any> KClass<T>.findPrimitiveSerializer(): XSerializer<T>? {
 
 @Suppress("UNCHECKED_CAST")
 private fun <T> findNestedSerializerClass(jClass: Class<T>, typeSerializers: List<XSerializer<Any>>): XSerializer<T>? {
-    val serializerClass = jClass.declaredClasses.singleOrNull { it.simpleName == "\$serializer" } ?: return null
-    val typeParameters = Array(typeSerializers.size) { XSerializer::class.java }
-    val serializerFunction = serializerClass.getDeclaredMethod("serializer", *typeParameters)
+    val serializerClass = jClass.declaredClasses.singleOrNull { it.simpleName == "\$serializer\$" } ?: return null
+    // object INSTANCE
+    serializerClass.fields.singleOrNull { it.name == "INSTANCE" }?.let {
+        return it.get(null) as XSerializer<T>
+    }
 
-    return serializerFunction.invoke(null, typeSerializers) as? XSerializer<T>
+    // call constructor
+    val typeParameters = Array(typeSerializers.size) { XSerializer::class.java }
+    val ctr = serializerClass.getConstructor(*typeParameters)
+
+
+    return ctr.newInstance(*typeSerializers.toTypedArray()) as? XSerializer<T>
 }
 
 private fun typeParameterSerializers(types: List<KType>): List<XSerializer<Any>> {

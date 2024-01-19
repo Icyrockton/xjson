@@ -1,6 +1,7 @@
 package com.icyrockton.xjson.plugin
 
 import com.icyrockton.xjson.plugin.fir.XJsonFir
+import com.icyrockton.xjson.plugin.ir.XJsonIr
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
@@ -22,7 +23,7 @@ class XJsonPluginRegistrar : CompilerPluginRegistrar() {
 
         fun register(storage: ExtensionStorage, configuration: CompilerConfiguration) = with(storage) {
             FirExtensionRegistrarAdapter.registerExtension(XJsonFir())
-//            IrGenerationExtension.registerExtension()
+            IrGenerationExtension.registerExtension(XJsonIr())
         }
 
     }
