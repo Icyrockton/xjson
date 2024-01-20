@@ -4,6 +4,9 @@ package com.icyrockton.xjson.runtime.descriptor
  * [Descriptor] describe the data model, including child element key names and whether a child element is optional
  */
 interface Descriptor {
+    companion object {
+        const val UNKNOWN_ELEMENT = -1
+    }
     /**
      * e.g. com.icyrockton.Foo
      */

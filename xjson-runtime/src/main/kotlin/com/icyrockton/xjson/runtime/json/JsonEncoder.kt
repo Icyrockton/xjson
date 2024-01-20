@@ -4,9 +4,6 @@ import com.icyrockton.xjson.runtime.XSerialization
 import com.icyrockton.xjson.runtime.descriptor.Descriptor
 import com.icyrockton.xjson.runtime.encoding.AbstractEncoder
 import com.icyrockton.xjson.runtime.encoding.CompositeEncoder
-import com.icyrockton.xjson.runtime.json.lexer.COLON
-import com.icyrockton.xjson.runtime.json.lexer.COMMA
-import com.icyrockton.xjson.runtime.json.lexer.NULL
 
 internal class JsonEncoder(val composer: JsonComposer, val json: XJson, val mode: JsonWriteMode) : AbstractEncoder() {
     constructor(writer: JsonWriter, json: XJson, mode: JsonWriteMode) : this(JsonComposer(writer), json, mode)

@@ -1,6 +1,7 @@
 package com.icyrockton.xjson.runtime.descriptor
 
 import com.icyrockton.xjson.runtime.core.serializer
+import com.icyrockton.xjson.runtime.descriptor.Descriptor.Companion.UNKNOWN_ELEMENT
 
 class DescriptorBuilder {
     private val uniqueNames = hashSetOf<String>()
@@ -45,7 +46,7 @@ class DescriptorImpl(
     private val elementDescriptors = builder.elementDescriptors
     private val elementIsOptional = builder.elementIsOptional
     override fun getElementName(index: Int): String = elementNames[index]
-    override fun getElementIndex(name: String): Int = name2Index[name] ?: error("Not found element $name in $this")
+    override fun getElementIndex(name: String): Int = name2Index[name] ?: UNKNOWN_ELEMENT
     override fun getElementDescriptor(index: Int): Descriptor = elementDescriptors[index]
     override fun getElementIsOptional(index: Int): Boolean = elementIsOptional[index]
 

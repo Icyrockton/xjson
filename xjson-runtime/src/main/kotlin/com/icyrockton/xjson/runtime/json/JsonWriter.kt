@@ -1,7 +1,5 @@
 package com.icyrockton.xjson.runtime.json
 
-import com.icyrockton.xjson.runtime.json.lexer.STRING
-
 interface JsonWriter {
     fun writeChar(v: Char)
     fun writeLong(v: Long)

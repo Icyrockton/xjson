@@ -16,9 +16,16 @@ class XJson {
         return encodeToString(serializer<T>(), value)
     }
 
-    fun <T> decodeFromString(deserializer: XDeSerialization<T>): T {
-        TODO()
+    fun <T> decodeFromString(deserializer: XDeSerialization<T>, string: String): T {
+        val lexer = JsonLexer(string)
+        val decoder = JsonDecoder(lexer, this, JsonWriteMode.OBJ)
+        return decoder.decodeSerializableValue(deserializer)
     }
+
+    inline fun <reified T> decodeFromString(string: String): T {
+        return decodeFromString(serializer<T>(), string)
+    }
+
 }
 
 fun XJson(builder: XJson.() -> Unit = { }): XJson {
