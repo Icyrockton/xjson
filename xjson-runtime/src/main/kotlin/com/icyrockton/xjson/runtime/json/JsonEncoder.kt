@@ -38,7 +38,9 @@ internal class JsonEncoder(val composer: JsonComposer, val json: XJson, val mode
                     composer.print(COMMA)
                 val name = descriptor.getElementName(index)
                 composer.nextItem()
+                composer.print('"')
                 composer.print(name)
+                composer.print('"')
                 composer.print(COLON)
                 composer.space()
             }
@@ -83,7 +85,9 @@ internal class JsonEncoder(val composer: JsonComposer, val json: XJson, val mode
     }
 
     override fun encodeString(value: String) {
+        composer.print('"')
         composer.print(value)
+        composer.print('"')
     }
 
     override fun <T> encodeSerializableValue(serializer: XSerialization<T>, value: T) {

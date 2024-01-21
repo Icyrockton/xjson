@@ -1,9 +1,11 @@
 package com.icyrockton.xjson.plugin.ir
 
+import com.icyrockton.xjson.plugin.XJsonClassId.missingPropertyExceptionClassId
 import com.icyrockton.xjson.plugin.XJsonClassId.pluginGeneratedDescriptor
 import com.icyrockton.xjson.plugin.XJsonClassId.serializerClassId
 import com.icyrockton.xjson.plugin.XJsonNames.BEGIN_STRUCTURE
 import com.icyrockton.xjson.plugin.XJsonNames.CHILD_SERIALIZERS
+import com.icyrockton.xjson.plugin.XJsonNames.DECODE_ELEMENT_INDEX
 import com.icyrockton.xjson.plugin.XJsonNames.DESCRIPTOR
 import com.icyrockton.xjson.plugin.XJsonNames.DESERIALIZE
 import com.icyrockton.xjson.plugin.XJsonNames.END_STRUCTURE
@@ -15,6 +17,8 @@ import com.icyrockton.xjson.plugin.irOrigin
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.lower.DeclarationIrBuilder
 import org.jetbrains.kotlin.backend.common.lower.createIrBuilder
+import org.jetbrains.kotlin.backend.common.lower.irIfThen
+import org.jetbrains.kotlin.backend.common.lower.irThrow
 import org.jetbrains.kotlin.descriptors.DescriptorVisibilities
 import org.jetbrains.kotlin.descriptors.Modality
 import org.jetbrains.kotlin.ir.builders.*
@@ -27,11 +31,14 @@ import org.jetbrains.kotlin.ir.declarations.IrDeclarationOrigin
 import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.expressions.IrInstanceInitializerCall
+import org.jetbrains.kotlin.ir.expressions.IrLoop
 import org.jetbrains.kotlin.ir.expressions.impl.IrInstanceInitializerCallImpl
 import org.jetbrains.kotlin.ir.types.createType
 import org.jetbrains.kotlin.ir.types.defaultType
+import org.jetbrains.kotlin.ir.types.makeNullable
 import org.jetbrains.kotlin.ir.types.starProjectedType
 import org.jetbrains.kotlin.ir.util.*
+import org.jetbrains.kotlin.name.Name
 
 class IrSerializerGenerator(val irClass: IrClass, pluginContext: IrPluginContext) : AbstractIrGenerator(pluginContext) {
     private val serializableClass = irClass.serializableClass
@@ -84,7 +91,7 @@ class IrSerializerGenerator(val irClass: IrClass, pluginContext: IrPluginContext
      *  $serializer$.serialize(encoder: Encoder, value: T)
      */
     private fun generateSerialize(function: IrSimpleFunction) = function.addFunctionBody {
-        fun irThis() = irGet(function.dispatchReceiverParameter!!)
+        fun irThis() = irGet(function.dispatchReceiverParameter!!)  // IrElement should not be unique
         val descriptorGetter = descriptor.getter!!.symbol
         // val descriptor = this.descriptor
         val descriptor =
@@ -153,8 +160,133 @@ class IrSerializerGenerator(val irClass: IrClass, pluginContext: IrPluginContext
         }
     }
 
+    /**
+     *  $serializer$.deserialize(decoder: Decoder): T
+     */
     fun generateDeserialize(function: IrSimpleFunction) = function.addFunctionBody {
+        fun irThis() = irGet(function.dispatchReceiverParameter!!)  // IrElement should not be unique
+        val decoder = function.valueParameters[0]
+        val descriptor =
+            irTemporary(irGet(descriptor.getter!!.returnType, irThis(), descriptor.getter!!.symbol), "descriptor")
 
+        val decoderBegin = decoderClass.functions.single { it.name == BEGIN_STRUCTURE && it.valueParameters.size == 1 }
+        val decodeElementIndexFunc =
+            compositeDecoderClass.functions.single { it.name == DECODE_ELEMENT_INDEX && it.valueParameters.size == 1 }
+
+
+        val call = irCall(decoderBegin).apply {
+            dispatchReceiver = irGet(decoder)
+            putValueArgument(0, irGet(descriptor))
+        }
+
+        // val cDecoder = decoder.beginStructure(descriptor)
+        val cDecoder = irTemporary(call, nameHint = "cDecoder")
+
+        // create local var
+        val localVars = serialProperty.properties.mapIndexed { index, serialProperty ->
+            val local = irTemporary(irNull(), "prop_${index}", serialProperty.type.makeNullable(), isMutable = true)
+            serialProperty to local
+        }.toMap()
+
+        +irWhile().apply {
+            val loop: IrLoop = this
+            condition = irTrue()
+            body = irBlock {
+                // val idx = cDecoder.decodeElementIndex(descriptor)
+                val callDecodeElementIndex = irCall(decodeElementIndexFunc).apply {
+                    dispatchReceiver = irGet(cDecoder)
+                    putValueArgument(0, irGet(descriptor))
+                }
+                val idx = irTemporary(callDecodeElementIndex, nameHint = "idx")
+
+                val branches = serialProperty.properties.mapIndexed { index, serialProperty ->
+                    val condition = irEquals(irGet(idx), irInt(index))
+                    val localVar =
+                        localVars[serialProperty] ?: error("not found local var for property ${serialProperty.name}")
+                    val errorMsg =
+                        "cannot determine which encode function should be called for property ${serialProperty.name}: ${serialProperty.type}"
+                    val serialInfo = findSerialInfoForProperty(serialProperty)
+                        ?: error(errorMsg)
+
+                    val callDecode = when {
+                        serialInfo.serializer != null || serialInfo.isGeneric -> {
+                            val serializer = instantiateSerializer(serialInfo.serializer, serialProperty.type) { genericIndex ->
+                                irGetField(irThis(), localTypeParameterSerializers[genericIndex].backingField!!)
+                            }
+
+                            val decodeFunc =
+                                compositeDecoderClass.functions.single { it.name.asString() == "decodeSerializableElement" && it.valueParameters.size == 3 }
+
+                            irCall(decodeFunc).apply {
+                                dispatchReceiver = irGet(cDecoder)
+                                putValueArgument(0, irGet(descriptor))
+                                putValueArgument(1, irInt(index))
+                                putValueArgument(2, serializer)   // serializer instance
+
+                                putTypeArgument(0, serialProperty.type)
+                            }
+                        }
+
+                        serialInfo.encodeType != null -> {
+                            val decodeFunc =
+                                compositeDecoderClass.functions.single { it.name.asString() == "decode${serialInfo.encodeType}Element" }
+                            irCall(decodeFunc).apply {
+                                dispatchReceiver = irGet(cDecoder)
+                                putValueArgument(0, irGet(descriptor))
+                                putValueArgument(1, irInt(index))
+                            }
+                        }
+
+                        else -> error(errorMsg)
+                    }
+
+                    val setVar = irSet(localVar, callDecode)
+
+                    irBranch(condition, setVar)
+                }.toMutableList()
+
+                // break loop
+                branches.add(
+                    irBranch(irEquals(irGet(idx), irInt(-1)), irBreak(loop))
+                )
+
+                +irWhen(context.irBuiltIns.unitType, branches)
+            }
+        }
+
+        // cDecoder.endStructure(descriptor)
+        val decoderEnd =
+            compositeDecoderClass.functions.single { it.name == END_STRUCTURE && it.valueParameters.size == 1 }
+        +irCall(decoderEnd).apply {
+            dispatchReceiver = irGet(cDecoder)
+            putValueArgument(0, irGet(descriptor))
+        }
+
+        // check local vars is not null
+        val missingPropertyExceptionCtr = pluginContext.referenceConstructors(missingPropertyExceptionClassId).single()
+        fun throwPropertyException(propName: String) = irThrow(irCall(missingPropertyExceptionCtr).apply {
+            putValueArgument(0, irString(propName))
+        })
+
+        serialProperty.properties.forEach { prop ->
+            val localVar =
+                localVars[prop] ?: error("not found local var for property ${prop.name}")
+            +irIfThen(irEqualsNull(irGet(localVar)), throwPropertyException(prop.name.asString()))
+        }
+
+        // call constructor
+        val serializableClassCtr = serializableClass.primaryConstructor ?: error("not found ${serializableClass.name} primary constructor")
+        assert(serializableClassCtr.valueParameters.size == serialProperty.properties.size) {
+            "currently only support all properties in data class will be serialized"
+        }
+        +irReturn(irCall(serializableClassCtr).apply {
+            irClass.typeParameters.forEachIndexed { index, irTypeParameter ->
+                putTypeArgument(index, irTypeParameter.defaultType)
+            }
+            serialProperty.properties.forEachIndexed { index, serialProperty ->
+                putValueArgument(index, irGet(localVars[serialProperty]!!) )
+            }
+        })
     }
 
     fun generateDescriptor(serialDescriptorProperty: IrProperty) {
